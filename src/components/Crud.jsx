@@ -41,11 +41,12 @@ const Crud = () => {
   };
 
   const renderupdateform = () => {
-    <div onSubmit={(e) => updateformtext(e)}>
+    <div onSubmit={(e) => updateItem(e)}>
       <input
         className="form-control"
         placeholder="enter text here"
         onChange={(e) => setIsUpdatingtext(e.target.value)}
+        value={isUpdatingtext}
       />
       <button className="btn btn-primary" type="submit">
         Update
@@ -79,6 +80,33 @@ const Crud = () => {
           value={itemText}
         />
         <button type="submit">ADD</button>
+      </div>
+      <div>
+        {listitem.map((item) => (
+          <div>
+            {isUpdating === item._id ? (
+              renderupdateform()
+            ) : (
+              <>
+                <p>{item.item}</p>
+                <button
+                  onClick={() => {
+                    setIsUpdating(item._id);
+                  }}
+                >
+                  Update
+                </button>
+                <button
+                  onClick={() => {
+                    deleteItem(item._id);
+                  }}
+                >
+                  Delete
+                </button>
+              </>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );
