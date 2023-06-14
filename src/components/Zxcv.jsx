@@ -66,7 +66,15 @@ const Zxcv = () => {
         />
 
         <div>
-          <button className="btn btn-primary" type="button" onClick={handleAdd}>
+          <button
+            style={{
+              textShadow: "-10px -10px",
+              color: "#FFFF00",
+              background: "",
+            }}
+            type="button"
+            onClick={handleAdd}
+          >
             ADD
           </button>
         </div>
